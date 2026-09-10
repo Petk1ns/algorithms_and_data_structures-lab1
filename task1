@@ -1,0 +1,17 @@
+from math import cos, sin
+
+def f(x):
+    return cos(2 / x) - 2 * sin(1 / x) + (1 / x) #заданная функция
+
+
+L, R = 1, 2 #границы интервала
+p = float(input()) #погрешность
+
+while abs(R - L) > p:
+    x = (L + R) / 2 #середина интервала
+    if f(x) * f(L) < 0: #проверка, с какой стороны находится корень
+        R = x
+    else:
+        L = x
+
+print(x) #ответ
